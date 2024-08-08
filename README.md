@@ -13,6 +13,6 @@ for now using it looks something like:
 python3 converter.py {in file}
 ```
 or
-'''
+```
 python3 converter.py {in_file} --output_file_path={outfile}
-'''
+```
