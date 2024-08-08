@@ -5,10 +5,14 @@ install the python dependencies with run:
 
 create a private.py file with: 
 ```
-groq_api_key = "{your api key here}"
+GROQ_API_KEY = "{your api key here}"
 ```
 
 for now using it looks something like:
 ```
-python3 converter.py >> out_file
+python3 converter.py {in file}
 ```
+or
+'''
+python3 converter.py {in_file} --output_file_path={outfile}
+'''
