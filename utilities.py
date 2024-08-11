@@ -47,3 +47,22 @@ def singleton(cls):
         return instances[cls]
 
     return get_instance
+
+
+class ObserverHandler:
+    def __init__(self):
+        print("ObserverHandler __init__")
+        self._observers = {}
+
+    def subscribe(self, observable_name, observer):
+        if observable_name not in self._observers.keys():
+            self._observers[observable_name] = []
+        self._observers[observable_name].append(observer)
+
+    def unsubscribe(self, observable_name, observer):
+        self._observers[observable_name].remove(observer)
+
+    def notify(self, observable_name, *args, **kwargs):
+        if observable_name in self._observers.keys():
+            for func in self._observers[observable_name]:
+                func(args, kwargs)
